@@ -17,7 +17,7 @@ const SearchBar = ({ onSearch, onLocationSearch, loading }) => {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="glass p-4 w-80"
+      className="glass p-4 max-w-md mx-auto mb-6"
     >
       <form onSubmit={handleSubmit} className="flex gap-2">
         <div className="flex-1 relative">

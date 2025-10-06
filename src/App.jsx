@@ -7,13 +7,10 @@ import SearchBar from './components/SearchBar';
 import BackgroundImage from './components/BackgroundImage';
 import WeatherParticles from './components/WeatherParticles';
 import ForecastCard from './components/ForecastCard';
-import Globe3D from './components/Globe3D';
-import GlobeToggle from './components/GlobeToggle';
 
 function App() {
   const { weather, forecast, loading, error, currentCity, fetchWeather, fetchWeatherByLocation } = useWeather();
   const [timeOfDay, setTimeOfDay] = useState(getTimeOfDay());
-  const [showGlobe, setShowGlobe] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,31 +43,11 @@ function App() {
           <p className="text-white/80 text-lg">Weather as You've Never Seen Before</p>
         </motion.header>
 
-        <div className="flex items-start justify-center gap-4 mb-6">
-          <SearchBar 
-            onSearch={fetchWeather}
-            onLocationSearch={fetchWeatherByLocation}
-            loading={loading}
-          />
-          <GlobeToggle 
-            showGlobe={showGlobe} 
-            onToggle={() => setShowGlobe(!showGlobe)} 
-          />
-        </div>
-
-        {showGlobe && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="mb-6"
-          >
-            <Globe3D 
-              onLocationSelect={fetchWeather}
-              selectedLocation={currentCity}
-            />
-          </motion.div>
-        )}
+        <SearchBar 
+          onSearch={fetchWeather}
+          onLocationSearch={fetchWeatherByLocation}
+          loading={loading}
+        />
 
         {loading && (
           <motion.div
