@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Sphere, Text } from '@react-three/drei';
 import * as THREE from 'three';
@@ -49,9 +49,9 @@ const Globe = ({ onLocationClick, selectedLocation }) => {
       {/* Earth Sphere */}
       <Sphere ref={meshRef} args={[2, 64, 64]}>
         <meshStandardMaterial
-          map={new THREE.TextureLoader().load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')}
-          bumpMap={new THREE.TextureLoader().load('https://unpkg.com/three-globe/example/img/earth-topology.png')}
-          bumpScale={0.05}
+          color="#4A90E2"
+          roughness={0.8}
+          metalness={0.2}
         />
       </Sphere>
 
@@ -93,13 +93,30 @@ const Globe = ({ onLocationClick, selectedLocation }) => {
 };
 
 const Globe3D = ({ onLocationSelect, selectedLocation }) => {
+  const [error, setError] = useState(false);
+  
   const handleLocationClick = (cityName) => {
     onLocationSelect(cityName);
   };
 
+  if (error) {
+    return (
+      <div className="w-full h-96 glass rounded-xl flex items-center justify-center">
+        <div className="text-center text-white">
+          <div className="text-6xl mb-4">🌍</div>
+          <p className="text-lg mb-2">3D Globe temporarily unavailable</p>
+          <p className="text-sm text-white/70">Use the search bar to explore weather</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full h-96 glass rounded-xl overflow-hidden">
-      <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
+    <div className="w-full h-96 glass rounded-xl overflow-hidden relative">
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 60 }}
+        onError={() => setError(true)}
+      >
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <Globe onLocationClick={handleLocationClick} selectedLocation={selectedLocation} />
