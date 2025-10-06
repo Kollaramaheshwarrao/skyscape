@@ -1,8 +1,8 @@
-# 🌟 SkyScape - Weather as You've Never Seen Before
+# SkyScape - Weather as You've Never Seen Before
 
 A futuristic, visually immersive weather application that combines real-time meteorological data with interactive area-based visuals.
 
-## ✨ Features
+##  Features
 
 - **Live Weather Data** - Real-time weather for any city worldwide
 - **Immersive Visuals** - Location-based background images with weather overlays
@@ -13,7 +13,7 @@ A futuristic, visually immersive weather application that combines real-time met
 - **Geolocation Support** - Auto-detect your current location
 - **Glassmorphism UI** - Modern, translucent design elements
 
-## 🚀 Quick Start
+##  Quick Start
 
 1. **Clone and Install**
    ```bash
@@ -26,7 +26,7 @@ A futuristic, visually immersive weather application that combines real-time met
    npm run dev
    ```
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: React 18 + Vite
 - **Styling**: TailwindCSS + Custom CSS
@@ -34,7 +34,7 @@ A futuristic, visually immersive weather application that combines real-time met
 - **Icons**: Lucide React
 - **APIs**: Open-Meteo (free weather API) + Unsplash (free images)
 
-## 🎨 Design Features
+##  Design Features
 
 - **Glassmorphism** - Translucent cards with backdrop blur
 - **Dynamic Gradients** - Weather and time-based color schemes
@@ -42,14 +42,14 @@ A futuristic, visually immersive weather application that combines real-time met
 - **Responsive Design** - Mobile-first approach
 - **Weather Particles** - Immersive rain and snow animations
 
-## 📱 Usage
+##  Usage
 
 1. **Search Weather** - Type any city name in the search bar
 2. **Use Location** - Click the location icon for current weather
 3. **View Forecast** - Scroll down for 5-day predictions
 4. **Experience Immersion** - Watch weather particles and dynamic backgrounds
 
-## 🌈 Color Themes
+##  Color Themes
 
 - **Dawn**: Soft peach & lavender glow
 - **Day**: Vibrant cerulean & warm light  
