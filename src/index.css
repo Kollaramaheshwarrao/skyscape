@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl;
+  }
+  
+  .weather-particle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+  
+  .rain-drop {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #60A5FA);
+    animation: fall 1s linear infinite;
+  }
+  
+  .snow-flake {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: snowfall 3s linear infinite;
+  }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes snowfall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
